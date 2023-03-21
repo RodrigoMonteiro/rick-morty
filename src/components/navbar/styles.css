@@ -1,0 +1,36 @@
+.header-container{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    height: 15%;
+    z-index: 1;
+}
+.header-container ul{
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 40%;
+
+}
+
+.header-container ul li{
+    width: 20%;
+    height: 50%;
+}
+.header-container ul li button{
+    border-radius: 5px;
+}
+
+.header-container ul li .btn:hover{
+    border: 2px solid #11cb5f;
+  box-shadow: 0 0 2px #11cb5f,
+              0 0 2px #11cb5f,
+              0 0 2px #11cb5f,
+              0 0 2px #11cb5f;
+   
+}
+.header-container ul li .btn-theme{
+    width: 50%;
+    align-self: flex-end;
+    
+}
