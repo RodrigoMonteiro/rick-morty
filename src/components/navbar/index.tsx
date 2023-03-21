@@ -1,13 +1,19 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useRef } from "react";
 import './styles.css'
 import {DarkMode, LightMode} from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
 export function Navbar(props: any) {
+  
 
-  const {changeTheme, theme} = props
+
+const {changeTheme, theme} = props
 const currentTheme = useTheme();
 
+function handleHomeClick() {
+  const homeViewRef = document.getElementById("home-view");
+  homeViewRef?.scrollIntoView({ behavior: "smooth" });
+}
 function handleCharacterClick() {
   const characterViewRef = document.getElementById("character-view");
   characterViewRef?.scrollIntoView({ behavior: "smooth" });
@@ -28,7 +34,8 @@ function handleLocationClick() {
         style={{ backgroundColor: currentTheme.palette.background.default }}
       >
         <img
-          style={{ width: "15%", height: "100%" }}
+          onClick={handleHomeClick}
+          style={{ width: "15%", height: "100%", cursor: 'pointer'}}
           src="assets/logo.png"
           alt="Logo_alt"
         />

@@ -4,6 +4,7 @@ export function EpisodeView() {
   return (
     <div className="episodeView-container">
       <h3>Episode view component</h3>
+      <div className="background-image"></div>
     </div>
   );
 }

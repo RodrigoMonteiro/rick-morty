@@ -35,9 +35,9 @@ function App() {
           <EpisodeView />
         </div>
         <div ref={locationViewRef} id="location-view">
-          <CharacterView />
+          <LocationView />
         </div>
-        
+
       </div>
       <CssBaseline />
     </ThemeProvider>
