@@ -1,6 +1,20 @@
 import "./styles.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import {
+  gellAllLocations,
+  getLocationByName,
+} from "../../services/locationService";
 export function LocationView() {
+  const [dataLocations, setDataLocations] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await gellAllLocations();
+      // console.log(data.results)
+      setDataLocations(data);
+    };
+    fetchData();
+  }, []);
   return (
     <div className="locationView-container">
       <h3>location view component</h3>
