@@ -1,12 +1,100 @@
+.characterView-title {
+    position: absolute;
+    top: 18%;
+    height: 5%;
+    text-align: center;
+}
 .characterView-container {
+    align-self: center;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+}
+.characterView-container .characterView-search-container,
+.characterView-container .characterView-search-result {
+    position: relative;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 70%;
+    /* background-color: blueviolet; */
+}
+.characterView-container .characterView-search-container input {
+    position: relative;
+    width: 60%;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 1.02rem;
+    border: 2px solid transparent;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+.characterView-container .characterView-search-container input:focus {
+    outline: none;
+}
+.characterView-container .characterView-search-container .characterView-search-input-btn {
+    position: absolute;
+    top: 11%;
+    right: 21.25%;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.characterView-container .characterView-search-container .characterView-search-list {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    height: 70%;
+}
+.characterView-search-list .table-container {
+    border-radius: 5px;
+}
+.characterView-search-list .table-container::-webkit-scrollbar {
+    display: none;
+}
+
+.characterView-search-list .table-pagination {
+    margin-top: 10px;
+    display: flex;
+    position: relative;
+    border: 2px solid transparent;
+    justify-content: space-around;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+}
+.table-pagination span {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 0;
-    top: 15%;
-    height: 100%;
+    cursor: pointer;
+    width: 15%;
 }
+.table-pagination .current-page::after {
+    position: absolute;
+    content: "";
+    width: 85%;
+    height: 85%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 5px;
+    z-index: 4;
+}
+
 .characterView-container .background-image {
     position: absolute;
     top: 0;
@@ -19,4 +107,50 @@
     background-repeat: no-repeat;
     opacity: 0.3;
     z-index: -1;
+}
+
+/* .table-characters tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+} */
+.characterView-search-result .result-container {
+   align-self: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    height: 70%;
+    border-radius: 5px;
+    /* background-color: aqua; */
+    border: 3px solid transparent;
+    box-shadow: 1px 1px  1px  #11cb5f;
+}
+.result-container .result-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    border-right: 2px solid transparent;
+}
+.result-header img {
+    height: 90%;
+    border-radius: 5px 0 0 0;
+    border-bottom: 2px solid transparent;
+}
+.result-header .character-name {
+    text-align: center;
+    height: 10%;
+}
+.result-container .result-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 90%;
+    /* background-color: blue; */
+    border-radius: 0 5px 5px 0;
+}
+.result-content span {
+    height: 15%;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    /* background-color: blueviolet; */
 }

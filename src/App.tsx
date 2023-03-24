@@ -24,12 +24,12 @@ function App() {
     <ThemeProvider theme={isLightTheme ? lightTheme : darkTheme}>
       <div className="App-container">
         <Navbar changeTheme={handleChangeTheme} theme={isLightTheme} />
-        
+
         <div ref={homeViewRef} id="home-view">
           <Home />
         </div>
         <div ref={characterViewRef} id="character-view">
-          <CharacterView />
+          <CharacterView/>
         </div>
         <div ref={episodeViewRef} id="episode-view">
           <EpisodeView />
@@ -37,7 +37,6 @@ function App() {
         <div ref={locationViewRef} id="location-view">
           <LocationView />
         </div>
-
       </div>
       <CssBaseline />
     </ThemeProvider>
