@@ -69,7 +69,6 @@ button.btn-selected::after {
     position: relative;
     width: 50%;
     height: 50%;
-    /* background-color: #11cb5f; */
     display: flex;
     justify-content: center;
     align-items: center;

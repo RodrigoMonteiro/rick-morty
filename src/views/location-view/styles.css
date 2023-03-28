@@ -14,6 +14,45 @@
     text-align: center;
 }
 
+.locationView-card .card-input{
+    position:absolute;
+    width: 50%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%);
+    height: 6%;
+    border-radius: 5px;
+    font-size: 1.02rem;
+    border: 2px solid transparent;
+    padding-left: 10px;
+    background-color: transparent;
+}
+.locationView-card .card-input:focus{
+    outline: none;
+}
+.locationView-card .card-input-btn { 
+    position: absolute;
+    top: 31%;
+    right: 25.5%;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.locationView-card .card-content{
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 50%;
+    height: 55%;
+    border-radius: 5px;
+    background-color: royalblue;
+}
+
+
+
+
+
 .locationView-container .background-image {
     position: absolute;
     top: 0;
