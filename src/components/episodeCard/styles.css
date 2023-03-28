@@ -1,0 +1,37 @@
+.card-episode {
+    position: relative;
+    display: flex;
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2px solid #11cb5f;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+.card-episode span {
+    padding-left: 15px;
+    height: 10%;
+    /* background-color: greenyellow; */
+}
+
+.card-episode .arrow-right {
+    position: absolute;
+    top: 50%;
+    right: -7%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.card-episode .arrow-left {
+    position: absolute;
+    top: 50%;
+    left: -7%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.card-episode .arrow-right:hover,
+.card-episode .arrow-left:hover {
+    opacity: 0.7;
+}

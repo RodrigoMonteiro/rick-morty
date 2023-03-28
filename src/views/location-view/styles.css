@@ -2,10 +2,16 @@
     position: relative;
     z-index: 0;
     height: 100%;
-    top: 15%;
    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.locationView-title {
+    position: absolute;
+    top: 18%;
+    height: 5%;
+    text-align: center;
 }
 
 .locationView-container .background-image {

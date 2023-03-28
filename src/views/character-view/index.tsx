@@ -33,7 +33,7 @@ export function CharacterView() {
 
   function handleSingleCharacter(handleCharacter: Character) {
     setSingleCharacter(handleCharacter);
-    console.log(singleCharacter);
+    // console.log(singleCharacter);
   }
   return (
     <>

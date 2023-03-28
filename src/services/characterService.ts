@@ -10,4 +10,5 @@ async function getCharacterByName(name : string){
     return await response.json()
 }
 
+
 export  {getAllCharacters , getCharacterByName} 

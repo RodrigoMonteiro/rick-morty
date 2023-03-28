@@ -17,7 +17,7 @@ export function LocationView() {
   }, []);
   return (
     <div className="locationView-container">
-      <h3>location view component</h3>
+      <h1 className="locationView-title">Locations</h1>
       <div className="background-image"></div>
     </div>
   );
