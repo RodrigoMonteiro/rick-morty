@@ -46,7 +46,21 @@
     width: 50%;
     height: 55%;
     border-radius: 5px;
-    background-color: royalblue;
+    /* background-color: royalblue; */
+}
+
+.locationView-card .card-content .table-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+ .order-icon-btn{
+    position: absolute;
+    top: 25%;
+    right:5%;
+    transform: translate();
+    cursor: pointer;
 }
 
 
