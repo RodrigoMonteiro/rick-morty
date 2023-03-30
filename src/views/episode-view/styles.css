@@ -37,7 +37,7 @@
     position: relative;
     display: flex;
     justify-content: space-around;
-    top: 20%;
+    top: 15%;
     height: 5%;
     width: 50%;
 }
@@ -64,16 +64,6 @@ button.btn-selected::after {
     opacity: 0.8;
     transform: all 0.3 ease;
 }
-
-.episodes-content {
-    position: relative;
-    width: 50%;
-    height: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 .episodeView-container .background-image {
     position: absolute;

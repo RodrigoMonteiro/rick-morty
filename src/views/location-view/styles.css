@@ -6,14 +6,12 @@
     justify-content: center;
     align-items: center;
 }
-
 .locationView-title {
     position: absolute;
     top: 18%;
     height: 5%;
     text-align: center;
 }
-
 .locationView-card .card-input{
     position:absolute;
     width: 50%;
@@ -37,7 +35,6 @@
     z-index: 3;
     cursor: pointer;
 }
-
 .locationView-card .card-content{
     position: relative;
     top: 40%;
@@ -46,27 +43,16 @@
     width: 50%;
     height: 55%;
     border-radius: 5px;
-    /* background-color: royalblue; */
 }
-
 .locationView-card .card-content .table-container::-webkit-scrollbar {
     display: none;
 }
-
-
-
  .order-icon-btn{
     position: absolute;
     top: 25%;
     right:5%;
-    transform: translate();
     cursor: pointer;
 }
-
-
-
-
-
 .locationView-container .background-image {
     position: absolute;
     top: 0;

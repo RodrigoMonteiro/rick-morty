@@ -1,8 +1,9 @@
 .card-episode {
     position: relative;
+    top: -15%;
     display: flex;
     width: 50%;
-    height: 50%;
+    height: 30%;
     background-color: #fff;
     flex-direction: column;
     justify-content: space-around;

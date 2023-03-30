@@ -20,6 +20,7 @@ export function LocationView() {
     dimensionOrdenedAsc: false,
     typeOrdenedAsc: false,
   })
+  const [searchLocation, setSearchLocation] = useState("")
   useEffect(() => {
     const fetchData = async () => {
       const data = await gellAllLocations();
@@ -93,33 +94,34 @@ function orderDesc(atribute: string) {
     return newData;
   });
   }
-  // function orderDesc(attribute: string) {
-  //   console.log("Desc...", attribute);
-  //   const newOrdened = [...dataLocations].sort((a, b) => {
-  //     if (a[attribute] < b[attribute]) {
-  //       return 1;
-  //     } else if (a[attribute] > b[attribute]) {
-  //       return -1;
-  //     } else {
-  //       return 0;
-  //     }
-  //   });
-  //   setDataLocations(newOrdened);
-  // }
 
-
+ async function handleLocationByName(location: string) {
+   const result = await gellAllLocations();
+   const filteredLocations = result.filter((e) =>
+     e.name.toLowerCase().includes(location.toLowerCase())
+   );
+   setDataLocations(filteredLocations);
+ }
+ 
   return (
     <div className="locationView-container">
       <h1 className="locationView-title">Locations</h1>
       <div className="locationView-card">
         <input
+          placeholder="Find a location by name..."
           className="card-input"
+          onChange={(e) => {
+            setSearchLocation(e.target.value);
+          }}
           style={{
             borderColor: currentTheme.palette.secondary.main,
             color: currentTheme.palette.text.primary,
           }}
         ></input>
-        <Search className="card-input-btn" />
+        <Search
+          className="card-input-btn"
+          onClick={() => handleLocationByName(searchLocation)}
+        />
         <div className="card-content">
           <TableContainer className="table-container">
             <Table stickyHeader>

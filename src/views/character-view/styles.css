@@ -7,70 +7,62 @@
 .characterView-container {
     align-self: center;
     position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     z-index: 0;
     height: 100%;
     width: 100%;
+
 }
-.characterView-container .characterView-search-container,
-.characterView-container .characterView-search-result {
-    position: relative;
-    top: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 45%;
-    height: 70%;
-    /* background-color: blueviolet; */
-}
-.characterView-container .characterView-search-container input {
-    position: relative;
-    width: 60%;
+
+.characterView-container  input {
+    position: absolute;
+    top:30%;
+    width: 30%;
     height: 40px;
+    left:10%;
     border-radius: 5px;
     font-size: 1.02rem;
     border: 2px solid transparent;
     padding-left: 10px;
     margin-bottom: 10px;
-    background-color: transparent;
 }
-.characterView-container .characterView-search-container input:focus {
+.characterView-container  input:focus {
     outline: none;
 }
-.characterView-container .characterView-search-container .characterView-search-input-btn {
+.characterView-container  .characterView-search-input-btn {
     position: absolute;
-    top: 11%;
-    right: 21.25%;
+    top: 31%;
+    left:37.5%;
     z-index: 3;
     cursor: pointer;
 }
 
-.characterView-container .characterView-search-container .characterView-search-list {
+.characterView-container  .characterView-search-table {
+    top: 37%;
+   left: 10%;
     position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    width: 60%;
-    height: 70%;
+    width: 30%;
+    height: 34.5%;
+    
 }
-.characterView-search-list .table-container {
+.characterView-container  .table-container {
     border-radius: 5px;
 }
-.characterView-search-list .table-container::-webkit-scrollbar {
+.characterView-container  .table-container::-webkit-scrollbar {
     display: none;
 }
 
-.characterView-search-list .table-pagination {
-    margin-top: 10px;
+.characterView-container  .table-pagination {
+    top: 40%;
+    left:10%;
     display: flex;
     position: relative;
     border: 2px solid transparent;
     justify-content: space-around;
-    width: 100%;
+    width: 30%;
     height: 40px;
     border-radius: 5px;
 }
@@ -112,47 +104,43 @@
 /* .table-characters tbody tr:nth-child(even) {
   background-color: #f2f2f2;
 } */
-.characterView-search-result .result-container {
-   align-self: flex-start;
+.characterView-container  .result-container {
+    position: absolute;
     display: flex;
-    justify-content: flex-start;
-    width: 90%;
-    height: 70%;
+    top: 30%;
+     width: 45%;
+    height: 50%;
+    right:10%;
     border-radius: 5px;
-    /* background-color: aqua; */
-    
-    border: 3px solid transparent;
-    box-shadow: 1px 1px  1px  #11cb5f;
+    /* border: 2px solid #11cb5f; */
+
 }
-.result-container .result-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+ .result-container .result-header {
+    position: relative;
     height: 100%;
+    width: 50%;
     border-right: 2px solid transparent;
 }
 .result-header img {
-    height: 90%;
-    border-radius: 5px 0 0 0;
+    position: relative;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
 }
-.result-header .character-name {
-    text-align: center;
-    height: 10%;
-}
+
+
 .result-container .result-content {
+    position:relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 90%;
+    height: 100%;
+    width: 50%;
     background-color: #FFF;
     opacity: 0.7;
-    /* background-color: blue; */
-    border-radius: 0 5px 5px 0;
-}
-.result-content span {
-    height: 15%;
+    border-radius: 0 5px 5px 0; 
+ } 
+ .result-content span {
+    padding: 10px;
     padding-left: 12px;
-    display: flex;
-    align-items: center;
-    /* background-color: blueviolet; */
-}
+    align-self: center;
+ } 
