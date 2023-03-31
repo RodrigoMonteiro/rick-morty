@@ -4,31 +4,38 @@
     display: flex;
     width: 50%;
     height: 30%;
-    background-color: #fff;
     flex-direction: column;
     justify-content: space-around;
     border: 2px solid #11cb5f;
     border-radius: 4px;
     opacity: 0.8;
+    transition: transform 0.5s ease-in-out;
 }
+
+.card-episode.slide-left {
+  transform: translateX(-10%);
+}
+
+.card-episode.slide-right {
+  transform: translateX(10%);
+}
+
 .card-episode span {
     padding-left: 15px;
     height: 10%;
-    color: black;
-    /* background-color: greenyellow; */
 }
 
 .card-episode .arrow-right {
     position: absolute;
     top: 50%;
-    right: -7%;
+    right: -5%;
     transform: translateY(-50%);
     cursor: pointer;
 }
 .card-episode .arrow-left {
     position: absolute;
     top: 50%;
-    left: -7%;
+    left: -5%;
     transform: translateY(-50%);
     cursor: pointer;
 }
@@ -37,3 +44,4 @@
 .card-episode .arrow-left:hover {
     opacity: 0.7;
 }
+

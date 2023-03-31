@@ -42,6 +42,13 @@ export function EpisodeCard(props: EpisodeCardProps) {
         currentEpisode: nextEpisodeIndex,
         nextEpisode: nextEpisodeIndex + 1,
       });
+      const cardEpisode = document.querySelector(".card-episode");
+      if (cardEpisode) {
+        cardEpisode.classList.add("slide-right");
+        setTimeout(() => {
+          cardEpisode.classList.remove("slide-right");
+        }, 200);
+      }
     }
   }
 
@@ -53,13 +60,20 @@ export function EpisodeCard(props: EpisodeCardProps) {
         currentEpisode: previousEpisodeIndex,
         nextEpisode: statCurrentPage.currentEpisode + 1,
       });
+      const cardEpisode = document.querySelector(".card-episode");
+      if (cardEpisode) {
+        cardEpisode.classList.add("slide-left");
+        setTimeout(() => {
+          cardEpisode.classList.remove("slide-left");
+        }, 200);
+      }
     }
   }
 
   return (
     <div
       className="card-episode"
-      style={{ color: currentTheme.palette.text.primary }}
+      style={{ color: currentTheme.palette.text.primary,  backgroundColor: currentTheme.palette.primary.main}}
     >
       <KeyboardArrowLeft
         className="arrow-left"

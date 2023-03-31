@@ -20,7 +20,6 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import { gellAllLocations } from "../../services/locationService";
 
 export function CharacterView() {
   const currentTheme = useTheme();
@@ -45,6 +44,7 @@ export function CharacterView() {
       });
     };
     fetchData();
+    // eslint-disable-next-line
   }, []);
 
   function handleSingleCharacter(handleCharacter: Character) {
@@ -112,10 +112,18 @@ export function CharacterView() {
             color: currentTheme.palette.text.primary,
           }}
         />
-        <Search className="characterView-search-input-btn" onClick={() => {handleCharacterByName(searchCharacter);}}/>
+        <Search
+          className="characterView-search-input-btn"
+          onClick={() => {
+            handleCharacterByName(searchCharacter);
+          }}
+        />
         <div className="characterView-search-table">
           <TableContainer className="table-container">
-            <Table stickyHeader>
+            <Table
+              stickyHeader
+              sx={{ border: "2px solid #11cb5f", borderRadius: "5px" }}
+            >
               <TableHead>
                 <TableRow>
                   <TableCell
@@ -128,7 +136,7 @@ export function CharacterView() {
                   ></TableCell>
                 </TableRow>
               </TableHead>
-              <TableBody sx={{ border: "1px solid black" }}>
+              <TableBody>
                 {charactersCurrentPage.map((character) => (
                   <TableRow
                     key={character.id}
@@ -185,7 +193,10 @@ export function CharacterView() {
                   style={{ borderColor: currentTheme.palette.secondary.main }}
                 />
               </div>
-              <div className="result-content">
+              <div
+                className="result-content"
+                style={{ backgroundColor: currentTheme.palette.primary.main }}
+              >
                 <span>
                   <strong>Name: </strong>
                   {singleCharacter.name}

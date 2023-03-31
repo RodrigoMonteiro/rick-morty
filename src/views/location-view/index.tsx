@@ -123,9 +123,12 @@ function orderDesc(atribute: string) {
           onClick={() => handleLocationByName(searchLocation)}
         />
         <div className="card-content">
-          <TableContainer className="table-container">
+          <TableContainer
+            className="table-container"
+            sx={{ border: "2px solid #11cb5f", borderRadius: "5px" }}
+          >
             <Table stickyHeader>
-              <TableHead sx={{ height: 1 / 10, borderRadius: 5 }}>
+              <TableHead sx={{ height: 1 / 10 }}>
                 <TableRow>
                   <TableCell
                     sx={{

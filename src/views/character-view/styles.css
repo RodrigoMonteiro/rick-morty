@@ -24,6 +24,8 @@
     border: 2px solid transparent;
     padding-left: 10px;
     margin-bottom: 10px;
+    background-color: transparent;
+    
 }
 .characterView-container  input:focus {
     outline: none;
@@ -37,7 +39,7 @@
 }
 
 .characterView-container  .characterView-search-table {
-    top: 37%;
+    top: 38%;
    left: 10%;
     position: relative;
     display: flex;
@@ -50,6 +52,7 @@
 }
 .characterView-container  .table-container {
     border-radius: 5px;
+    border-bottom: 2px solid #11cb5f;
 }
 .characterView-container  .table-container::-webkit-scrollbar {
     display: none;
@@ -65,6 +68,9 @@
     width: 30%;
     height: 40px;
     border-radius: 5px;
+}
+.table-pagination-hide{
+visibility: hidden;
 }
 .table-pagination span {
     position: relative;
@@ -111,8 +117,7 @@
      width: 45%;
     height: 50%;
     right:10%;
-    border-radius: 5px;
-    /* border: 2px solid #11cb5f; */
+   
 
 }
  .result-container .result-header {
@@ -135,8 +140,7 @@
     justify-content: space-around;
     height: 100%;
     width: 50%;
-    background-color: #FFF;
-    opacity: 0.7;
+    opacity: 0.8;
     border-radius: 0 5px 5px 0; 
  } 
  .result-content span {
