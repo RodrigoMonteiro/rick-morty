@@ -101,6 +101,7 @@ function orderDesc(atribute: string) {
      e.name.toLowerCase().includes(location.toLowerCase())
    );
    setDataLocations(filteredLocations);
+   setSearchLocation("")
  }
  
   return (
@@ -108,6 +109,7 @@ function orderDesc(atribute: string) {
       <h1 className="locationView-title">Locations</h1>
       <div className="locationView-card">
         <input
+          value={searchLocation}
           placeholder="Find a location by name..."
           className="card-input"
           onChange={(e) => {
@@ -171,34 +173,42 @@ function orderDesc(atribute: string) {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {dataLocations.map((e) => (
-                  <TableRow key={e.id} style={{ cursor: "pointer" }}>
-                    <TableCell
-                      component="th"
-                      scope="row"
-                      align="left"
-                      sx={{ width: 2 / 5 }}
-                    >
-                      <strong> {e.name}</strong>
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      scope="row"
-                      align="center"
-                      sx={{ width: 2 / 5 }}
-                    >
-                      {e.dimension}
-                    </TableCell>
-                    <TableCell
-                      component="th"
-                      scope="row"
-                      align="center"
-                      sx={{ width: 1 / 5 }}
-                    >
-                      {e.type}
+                {dataLocations.length ? (
+                  dataLocations.map((e) => (
+                    <TableRow key={e.id} style={{ cursor: "pointer" }}>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        align="left"
+                        sx={{ width: 2 / 5 }}
+                      >
+                        <strong> {e.name}</strong>
+                      </TableCell>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        align="center"
+                        sx={{ width: 2 / 5 }}
+                      >
+                        {e.dimension}
+                      </TableCell>
+                      <TableCell
+                        component="th"
+                        scope="row"
+                        align="center"
+                        sx={{ width: 1 / 5 }}
+                      >
+                        {e.type}
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell  colSpan={3} align="center">
+                      <strong>No location(s) found.</strong>
                     </TableCell>
                   </TableRow>
-                ))}
+                )}
               </TableBody>
             </Table>
           </TableContainer>

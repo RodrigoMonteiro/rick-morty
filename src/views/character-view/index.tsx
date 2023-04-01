@@ -2,9 +2,9 @@ import "./styles.css";
 import React, { useState, useEffect } from "react";
 import { Character } from "../../models/Character";
 import {
-getFirstPageCharacters,
+  getFirstPageCharacters,
   getCharactersByPage,
-  getAllCharacters
+  getAllCharacters,
 } from "../../services/characterService";
 import { useTheme } from "@mui/material/styles";
 import {
@@ -24,7 +24,9 @@ import {
 export function CharacterView() {
   const currentTheme = useTheme();
 
-  const [charactersCurrentPage, setCharactersCurrentPage] = useState<Character[]>([]);
+  const [charactersCurrentPage, setCharactersCurrentPage] = useState<
+    Character[]
+  >([]);
   const [singleCharacter, setSingleCharacter] = useState<Character>();
   const [searchCharacter, setSearchCharacter] = useState("");
   const [pagination, setPagination] = useState({
@@ -89,14 +91,15 @@ export function CharacterView() {
       currentPage: pagination.lastPage,
     });
   }
-  
-   async function handleCharacterByName(character: string) {
-     const result = await getAllCharacters()
-     const filteredLocations = result.filter((e) =>
-       e.name.toLowerCase().includes(character.toLowerCase())
-     );
-     setCharactersCurrentPage(filteredLocations);
-   }
+
+  async function handleCharacterByName(character: string) {
+    const result = await getAllCharacters();
+    const filteredCharacters = result.filter((e) =>
+      e.name.toLowerCase().includes(character.toLowerCase())
+    );
+    setCharactersCurrentPage(filteredCharacters);
+    setSearchCharacter("");
+  }
 
   return (
     <>
@@ -104,8 +107,9 @@ export function CharacterView() {
         <h1 className="characterView-title">Characters</h1>
 
         <input
+          value={searchCharacter}
           type="text"
-          placeholder="Find a character by name.."
+          placeholder="Find a character by name..."
           onChange={(e) => setSearchCharacter(e.target.value)}
           style={{
             borderColor: currentTheme.palette.secondary.main,
@@ -127,30 +131,49 @@ export function CharacterView() {
               <TableHead>
                 <TableRow>
                   <TableCell
-                    sx={{ bgcolor: currentTheme.palette.secondary.main }}
+                    size="small"
+                    colSpan={2}
+                    sx={{
+                      bgcolor: currentTheme.palette.secondary.main,
+                    }}
                   >
                     <strong>Name</strong>
                   </TableCell>
-                  <TableCell
-                    sx={{ bgcolor: currentTheme.palette.secondary.main }}
-                  ></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {charactersCurrentPage.map((character) => (
-                  <TableRow
-                    key={character.id}
-                    style={{ cursor: "pointer" }}
-                    onClick={() => handleSingleCharacter(character)}
-                  >
-                    <TableCell component="th" scope="row" align="left">
-                      {character.name}
-                    </TableCell>
-                    <TableCell component="th" scope="row" align="right">
-                      <KeyboardArrowRight />
+                {charactersCurrentPage.length ? (
+                  charactersCurrentPage.map((character) => (
+                    <TableRow
+                      key={character.id}
+                      style={{ cursor: "pointer" }}
+                      onClick={() => handleSingleCharacter(character)}
+                    >
+                      <TableCell
+                        size="small"
+                        component="th"
+                        scope="row"
+                        align="left"
+                      >
+                        {character.name}
+                      </TableCell>
+                      <TableCell
+                        size="small"
+                        component="th"
+                        scope="row"
+                        align="right"
+                      >
+                        <KeyboardArrowRight />
+                      </TableCell>
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell size="small" colSpan={2} align="center">
+                      <strong> No character(s) found.</strong>
                     </TableCell>
                   </TableRow>
-                ))}
+                )}
               </TableBody>
             </Table>
           </TableContainer>

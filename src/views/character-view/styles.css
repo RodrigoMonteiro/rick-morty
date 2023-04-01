@@ -50,6 +50,11 @@
     height: 34.5%;
     
 }
+
+.characterView-search-table thead , .characterView-search-table tbody tr{
+    height: 50px;
+}
+
 .characterView-container  .table-container {
     border-radius: 5px;
     border-bottom: 2px solid #11cb5f;
