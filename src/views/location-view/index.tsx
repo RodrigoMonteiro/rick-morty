@@ -1,6 +1,6 @@
 import "./styles.css";
 import React, { useEffect, useState } from "react";
-import { gellAllLocations } from "../../services/locationService";
+import { getAllLocations } from "../../services/locationService";
 import { Location } from "../../models/Location";
 import { useTheme } from "@mui/material/styles";
 import { Search, UnfoldMore } from "@mui/icons-material";
@@ -12,6 +12,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+
 export function LocationView() {
   const currentTheme = useTheme();
   const [dataLocations, setDataLocations] = useState<Location[]>([]);
@@ -21,9 +22,15 @@ export function LocationView() {
     typeOrdenedAsc: false,
   })
   const [searchLocation, setSearchLocation] = useState("")
+
+  async function handleAllLocations(){
+    const allLocations = await getAllLocations();  
+    setDataLocations(allLocations);
+  }
+  
   useEffect(() => {
     const fetchData = async () => {
-      const data = await gellAllLocations();
+      const data = await getAllLocations();
       data.sort((a, b) => {
         if (a.name < b.name) {
         
@@ -41,28 +48,34 @@ export function LocationView() {
 
 
 function orderByAtribute(atribute: string) {
-  if (atribute === "Name") {
-    orderAtributes.nameOrdenedAsc ?  orderAsc(atribute) : orderDesc(atribute);
+  const attributeKey = atribute.toLowerCase();
+  if (attributeKey === "name") {
     setOrderAtributes({
       ...orderAtributes,
       nameOrdenedAsc: !orderAtributes.nameOrdenedAsc,
     });
-  } else if (atribute === "Dimension") {
-     orderAtributes.dimensionOrdenedAsc
-       ? orderAsc(atribute)
-       : orderDesc(atribute);
+    orderAtributes.nameOrdenedAsc
+      ? orderAsc(attributeKey)
+      : orderDesc(attributeKey);
+  } else if (attributeKey === "dimension") {
     setOrderAtributes({
       ...orderAtributes,
       dimensionOrdenedAsc: !orderAtributes.dimensionOrdenedAsc,
     });
-  } else if (atribute === "Type") {
-    orderAtributes.typeOrdenedAsc ? orderAsc(atribute) : orderDesc(atribute);
+    orderAtributes.dimensionOrdenedAsc
+      ? orderAsc(attributeKey)
+      : orderDesc(attributeKey);
+  } else if (attributeKey === "type") {
     setOrderAtributes({
       ...orderAtributes,
       typeOrdenedAsc: !orderAtributes.typeOrdenedAsc,
     });
+    orderAtributes.typeOrdenedAsc
+      ? orderAsc(attributeKey)
+      : orderDesc(attributeKey);
   }
 }
+
 
  function orderAsc(atribute: string) {
    setDataLocations((prevState) => {
@@ -96,7 +109,7 @@ function orderDesc(atribute: string) {
   }
 
  async function handleLocationByName(location: string) {
-   const result = await gellAllLocations();
+   const result = await getAllLocations();
    const filteredLocations = result.filter((e) =>
      e.name.toLowerCase().includes(location.toLowerCase())
    );
@@ -177,6 +190,7 @@ function orderDesc(atribute: string) {
                   dataLocations.map((e) => (
                     <TableRow key={e.id} style={{ cursor: "pointer" }}>
                       <TableCell
+                        colSpan={1}
                         component="th"
                         scope="row"
                         align="left"
@@ -185,6 +199,7 @@ function orderDesc(atribute: string) {
                         <strong> {e.name}</strong>
                       </TableCell>
                       <TableCell
+                        colSpan={1}
                         component="th"
                         scope="row"
                         align="center"
@@ -193,6 +208,7 @@ function orderDesc(atribute: string) {
                         {e.dimension}
                       </TableCell>
                       <TableCell
+                        colSpan={1}
                         component="th"
                         scope="row"
                         align="center"
@@ -204,8 +220,17 @@ function orderDesc(atribute: string) {
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell  colSpan={3} align="center">
-                      <strong>No location(s) found.</strong>
+                    <TableCell colSpan={3} align="center">
+                      <strong>No location(s) found. </strong>
+                      Back to list
+                      <button
+                        onClick={() => {
+                          handleAllLocations();
+                        }}
+                        className="btn-back-list-location"
+                      >
+                        here.
+                      </button>
                     </TableCell>
                   </TableRow>
                 )}

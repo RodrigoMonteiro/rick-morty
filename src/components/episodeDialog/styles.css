@@ -1,0 +1,26 @@
+.dialog-container{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border-color: red;
+    z-index: 7;
+}
+.extra-informtion {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 35px;
+    height: 35px;
+    background-color: #11cb5f;
+    z-index: 3;
+    border-style: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.extra-informtion:hover {
+    opacity: 0.7;
+    width: 40px;
+    height: 40px;
+    transition: all 0.2s  linear;
+}

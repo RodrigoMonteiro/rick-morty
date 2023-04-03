@@ -50,6 +50,20 @@
     height: 34.5%;
     
 }
+.characterView-search-table .btn-back-list{
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font-weight: bold;
+    display: inline-block;
+    height: 10%;
+    width: 10%;
+    
+  
+}
 
 .characterView-search-table thead , .characterView-search-table tbody tr{
     height: 50px;

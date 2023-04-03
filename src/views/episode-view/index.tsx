@@ -5,11 +5,13 @@ import { useTheme } from "@mui/material/styles";
 import { Episode } from "../../models/Episode";
 import { EpisodeCard } from "./../../components/episodeCard";
 import { QuestionMark } from "@mui/icons-material";
+import { EpisodeDialog } from "../../components/episodeDialog";
 
 export function EpisodeView() {
   const [selectedSeason, setSelectedSeason] = useState("Season 1");
   const [episodes, setEpisodes] = useState<Episode[]>([]);
   const currentTheme = useTheme();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,6 +20,17 @@ export function EpisodeView() {
     };
     fetchData();
   }, []);
+
+    const handleClickOpen = () => {
+      setIsDialogOpen(true);
+      console.log("dialog: ", isDialogOpen)
+    };
+    
+    const handleClose = () => {
+      setIsDialogOpen(false);
+      console.log("dialog: ", isDialogOpen)
+    };
+   
 
   function handleSelectedSeason(newSelected: string) {
     setSelectedSeason(newSelected);
@@ -42,9 +55,7 @@ const episodesBySeason: EpisodesBySeason = {
   return (
     <div className="episodeView-container">
       <h1 className="episodesView-title">Episodes</h1>
-      <button className="extra-informtion">
-        <QuestionMark />
-      </button>
+      <EpisodeDialog/>
       <div className="background-image"></div>
       <div className="header-options">
         {Object.keys(episodesBySeason).map((season) => (

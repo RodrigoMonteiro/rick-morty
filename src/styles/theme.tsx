@@ -80,5 +80,6 @@ export const darkTheme = createTheme({
         letterSpacing: "0em",
         lineHeight: 1.2,
       },
-    }
+    },
+    
 });

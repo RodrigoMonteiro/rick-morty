@@ -2,7 +2,7 @@
     position: relative;
     z-index: 0;
     height: 100%;
-   display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -12,8 +12,8 @@
     height: 5%;
     text-align: center;
 }
-.locationView-card .card-input{
-    position:absolute;
+.locationView-card .card-input {
+    position: absolute;
     width: 50%;
     top: 30%;
     left: 50%;
@@ -25,17 +25,17 @@
     padding-left: 10px;
     background-color: transparent;
 }
-.locationView-card .card-input:focus{
+.locationView-card .card-input:focus {
     outline: none;
 }
-.locationView-card .card-input-btn { 
+.locationView-card .card-input-btn {
     position: absolute;
     top: 31%;
     right: 25.5%;
     z-index: 3;
     cursor: pointer;
 }
-.locationView-card .card-content{
+.locationView-card .card-content {
     position: relative;
     top: 40%;
     left: 50%;
@@ -44,13 +44,27 @@
     height: 55%;
     border-radius: 5px;
 }
+
+
+.card-content .btn-back-list-location {
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    font-weight: bold;
+    display: inline-block;
+    height: 10%;
+    width: 8%;
+}
 .locationView-card .card-content .table-container::-webkit-scrollbar {
     display: none;
 }
- .order-icon-btn{
+.order-icon-btn {
     position: absolute;
     top: 25%;
-    right:5%;
+    right: 5%;
     cursor: pointer;
 }
 .locationView-container .background-image {

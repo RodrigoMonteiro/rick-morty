@@ -34,7 +34,21 @@ export function CharacterView() {
     currentPage: 1,
     lastPage: 0,
   });
+const [showPagination, setShowPagination] = useState(true);
 
+
+function handleShowPagination() {
+  setShowPagination(true); 
+}
+function handleHidePagination() {
+  if (searchCharacter.length >= 1){
+              setShowPagination(false); 
+              setSearchCharacter("")
+
+            }
+
+
+}
   useEffect(() => {
     const fetchData = async () => {
       const data = await getFirstPageCharacters();
@@ -99,6 +113,7 @@ export function CharacterView() {
     );
     setCharactersCurrentPage(filteredCharacters);
     setSearchCharacter("");
+    handleHidePagination();
   }
 
   return (
@@ -120,6 +135,7 @@ export function CharacterView() {
           className="characterView-search-input-btn"
           onClick={() => {
             handleCharacterByName(searchCharacter);
+           handleHidePagination()
           }}
         />
         <div className="characterView-search-table">
@@ -170,7 +186,17 @@ export function CharacterView() {
                 ) : (
                   <TableRow>
                     <TableCell size="small" colSpan={2} align="center">
-                      <strong> No character(s) found.</strong>
+                      <strong> No character(s) found.</strong> Back to list{" "}
+                      <button
+                        onClick={() =>{
+                          handleFirstCharacterPage();
+                          handleShowPagination()
+                        }}
+                        className="btn-back-list"
+                      >
+                        here
+                      </button>
+                      .
                     </TableCell>
                   </TableRow>
                 )}
@@ -178,27 +204,34 @@ export function CharacterView() {
             </Table>
           </TableContainer>
         </div>
-        <div
-          className="table-pagination"
-          style={{ borderColor: currentTheme.palette.secondary.main }}
-        >
-          <span
-            className="first-page"
-            onClick={() => handleFirstCharacterPage()}
+        {showPagination  ? (
+          <div
+            className="table-pagination"
+            style={{ borderColor: currentTheme.palette.secondary.main }}
           >
-            {pagination.firstPage}
-          </span>
-          <span className="previous-page">
-            <KeyboardArrowLeft onClick={() => handlePreviousPage()} />
-          </span>
-          <span className="current-page">{pagination.currentPage}</span>
-          <span className="next-page">
-            <KeyboardArrowRight onClick={() => handleNextPage()} />
-          </span>
-          <span className="last-page" onClick={() => handleLastCharacterPage()}>
-            {pagination.lastPage}
-          </span>
-        </div>
+            <span
+              className="first-page"
+              onClick={() => handleFirstCharacterPage()}
+            >
+              {pagination.firstPage}
+            </span>
+            <span className="previous-page">
+              <KeyboardArrowLeft onClick={() => handlePreviousPage()} />
+            </span>
+            <span className="current-page">{pagination.currentPage}</span>
+            <span className="next-page">
+              <KeyboardArrowRight onClick={() => handleNextPage()} />
+            </span>
+            <span
+              className="last-page"
+              onClick={() => handleLastCharacterPage()}
+            >
+              {pagination.lastPage}
+            </span>
+          </div>
+        ) : (
+          ""
+        )}
 
         <div
           className="result-container"

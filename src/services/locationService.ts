@@ -2,7 +2,7 @@ import { Location } from "../models/Location";
 
 const baseAPI = "https://rickandmortyapi.com/api/";
 
-async function gellAllLocations(): Promise<Location[]> {
+async function getAllLocations(): Promise<Location[]> {
   let allLocations: Location[] = [];
   let nextPageURL = `${baseAPI}location`;
 
@@ -18,8 +18,8 @@ async function gellAllLocations(): Promise<Location[]> {
 }
 
 async function getLocationByName(name: string): Promise<Location | undefined> {
-  const allLocations = await gellAllLocations();
+  const allLocations = await getAllLocations();
   return allLocations.find((location) => location.name === name);
 }
 
-export { gellAllLocations, getLocationByName };
+export { getAllLocations, getLocationByName };
