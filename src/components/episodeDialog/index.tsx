@@ -1,55 +1,46 @@
-import React, { useState } from "react";
-import { QuestionMark } from "@mui/icons-material";
-    import {
-    Button,
-    Dialog,
-    DialogActions,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    } from "@mui/material";
-    import "./styles.css";
+import React from "react";
+import './styles.css'
+import { useTheme } from "@mui/material/styles";
 
-    export function EpisodeDialog() {
-
-    const [isDialogOpen, setIsDialogOpen] = useState(false);  
-   
-    const handleClickOpen = () => {
-      setIsDialogOpen(true);
-      console.log("dialog: ", isDialogOpen);
-    };
-
-    const handleClose = () => {
-      setIsDialogOpen(false);
-      console.log("dialog: ", isDialogOpen);
-    };
-
-    return (
-      <div className="dialog-container">
-        <button onClick={() => handleClickOpen()} className="extra-informtion">
-          <QuestionMark />
-        </button>
-        <Dialog
-          open={isDialogOpen}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-          sx={{ zIndex: 5 }}
-        >
-          <DialogTitle id="alert-dialog-title">
-            {"Season information"}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              There are currently 6 seasons. the last one still active. the
-              information obtained from rickandmortyAPI has data until the fifth
-              season.
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>Ok</Button>
-          </DialogActions>
-        </Dialog>
+export function EpisodeDialog(props: any) {
+  const { dialogState, closeDialog } = props;
+  const currentTheme = useTheme()
+  
+  return (
+    <div
+      style={{
+        color: currentTheme.palette.text.primary,
+        backgroundColor: currentTheme.palette.background.default,
+      }}
+      className={
+        dialogState
+          ? "dialog-visible dialog-container"
+          : "dialog-hide dialog-container"
+      }
+    >
+      <h3 className="dialog-title"> Season information </h3>
+      <div className="dialog-content">
+        <img src="assets/rickCool.png" alt="rick_cool" />
+        <span>
+          There are currently 6 seasons. the last one still active. The
+          information obtained from rickandmortyAPI has data until the fifth
+          season. Seasons 7 and 8 have already been confirmed but no release
+          date has been announced.
+        </span>
       </div>
-    );
-    }
+      <div className="dialog-actions">
+        <button
+          style={{
+            color: currentTheme.palette.text.primary,
+            backgroundColor: currentTheme.palette.background.default,
+          }}
+          onClick={() => {
+            closeDialog();
+          }}
+        >
+          <strong>Ok</strong>
+        </button>
+      </div>
+    </div>
+  );
+}

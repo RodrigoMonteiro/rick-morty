@@ -16,5 +16,14 @@ body::-webkit-scrollbar{
   display: none;
 }
 
+body.dialog-active {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  z-index: 998;
+}
+
 
 

@@ -1,18 +1,17 @@
 import "./styles.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { getAllEpisodes } from "../../services/episodeService";
 import { useTheme } from "@mui/material/styles";
 import { Episode } from "../../models/Episode";
 import { EpisodeCard } from "./../../components/episodeCard";
-import { QuestionMark } from "@mui/icons-material";
 import { EpisodeDialog } from "../../components/episodeDialog";
+import { QuestionMark } from "@mui/icons-material";
 
 export function EpisodeView() {
   const [selectedSeason, setSelectedSeason] = useState("Season 1");
   const [episodes, setEpisodes] = useState<Episode[]>([]);
   const currentTheme = useTheme();
   const [isDialogOpen, setIsDialogOpen] = useState(false);  
-
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAllEpisodes();
@@ -21,14 +20,16 @@ export function EpisodeView() {
     fetchData();
   }, []);
 
+ 
+
     const handleClickOpen = () => {
       setIsDialogOpen(true);
-      console.log("dialog: ", isDialogOpen)
+       document.body.classList.add("dialog-active");
     };
     
     const handleClose = () => {
       setIsDialogOpen(false);
-      console.log("dialog: ", isDialogOpen)
+      document.body.classList.remove("dialog-active");
     };
    
 
@@ -55,7 +56,19 @@ const episodesBySeason: EpisodesBySeason = {
   return (
     <div className="episodeView-container">
       <h1 className="episodesView-title">Episodes</h1>
-      <EpisodeDialog/>
+      <EpisodeDialog dialogState={isDialogOpen} closeDialog={handleClose} />
+      <button
+        style={{
+          backgroundColor: currentTheme.palette.secondary.main,
+          color: currentTheme.palette.text.primary,
+        }}
+        className="btn-dialog"
+        onClick={() => {
+          handleClickOpen();
+        }}
+      >
+        <QuestionMark />
+      </button>
       <div className="background-image"></div>
       <div className="header-options">
         {Object.keys(episodesBySeason).map((season) => (
