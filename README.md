@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# The Rick and Morty API
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### The application developed in React consumes data from rickandmortyapi.com. The application aims to show information about Characters, locals, and guides of episodes and seasons of the Rick and Morty series.
 
-## Available Scripts
+## Frontend setup
+To install the dependencies, go to folder rickandmorty and run: ``` npm i ```
 
-In the project directory, you can run:
+## Usage
+The web page has 3 main sections, one to show all characters seen in all episodes, another to show all episodes from each season, and all different locals shown in the series.
 
-### `npm start`
+## Application images
+<span>The application landing page shows a brief text about the series and what you going to find on the web page. On the header is possible to see the theme button switch and three more buttons to redirect to the respective section. On the footer, there is a link that redirects to API where the data are retrieved.</span>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<span>Here is the application using the light theme:</span>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  <img src="public/assets/readme/theme-light.png">
+  
+<span>Here is the application using the dark theme:</span>
 
-### `npm test`
+  <img src="public/assets/readme/theme-dark.png">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  <span>By default, all other images on this readme file contain the application using the dark theme.</span>
+  
+  <span> In the character section, there is a table that contains all characters retrieved by the API.</span>
+  
+  <img src="public/assets/readme/characters-default.png">
+  
+  <span>Also in this section is possible that the user searches for a character by name in the input field. The image below "simulates" a user search with the name "rick". It is possible to observe that when a character is clicked on the table, opens a container that has information about that character selected, like; "Name", "Status", "Specie", "Gender", "Origin" and "Location". </span>
+  
+  <img src="public/assets/readme/character-find.png">
 
-### `npm run build`
+  <span> In case the user searches for a character that not exists, the table shows the information that the character not exists and suggests that the user back to the list (initial state).</span>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  <img src="public/assets/readme/character-notFound.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  <span>In the Episodes section the users can navigate through the seasons and the episodes to see information about them.<span/>
+  
+  <img src="public/assets/readme/episodes-guide.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  <span>Case users click on the "Interrogation button" it will open a modal with more information about the episodes e seasons data retrieved.</span>
+  
+  <img src="public/assets/readme/epidodes-modalInformation.png">
 
-### `npm run eject`
+  <span>In the Locations section there is a large table with all locations present in series, with columns; "Name", "Dimension" and "Type". It is possible to order by "asc" and "desc" each attribute column.<span/>
+  
+  <img src="public/assets/readme/locations-guide.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  <span>Also in this section is possible that the user searches for a location by name in the input field. The image below "simulates" a user search with the location "earth".<span/>
+  
+  <img src="public/assets/readme/locations-find.png">
